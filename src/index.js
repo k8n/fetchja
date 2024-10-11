@@ -32,7 +32,8 @@ const jsonType = 'application/vnd.api+json'
  */
 export default class Fetchja {
   constructor (options = {
-    headers: {}
+    headers: {},
+    fetch: fetch
   }) {
     this.baseURL = options.baseURL
 
@@ -119,7 +120,7 @@ export default class Fetchja {
       })
 
       // Fetch
-      return fetch(url, {
+      return options.fetch(url, {
         method: options.method,
         body: options.body,
         headers
